@@ -31,13 +31,13 @@ const TotalSummary = ({ products, rates }) => {
 
   return (
     <div className="mt-4 p-4 border rounded shadow-sm">
-      <h2 className="text-xl font-bold mb-2">Resumen Total</h2>
-      <p>Total en Efectivo: ${total('efectivo').toFixed(2)}</p>
-      <p>Total en Transferencia: ${total('transferencia').toFixed(2)}</p>
-      <p>Total en 3 Cuotas: ${tresCuotasTotal.toFixed(2)}</p>
-      <p>3 Cuotas de: ${calculateInstallment(tresCuotasTotal, 3)}</p>
-      <p>Total en 6 Cuotas: ${seisCuotasTotal.toFixed(2)}</p>
-      <p>6 Cuotas de: ${calculateInstallment(seisCuotasTotal, 6)}</p>
+      <h2 className="text-xl font-bold mb-4">Resumen Total</h2>
+      <p className="mb-3">Total en Efectivo: ${total('efectivo').toFixed(2)}</p>
+      <p className="mb-3">Total en Transferencia: ${total('transferencia').toFixed(2)}</p>
+      <p className="mb-3">Total en 3 Cuotas: ${tresCuotasTotal.toFixed(2)}</p>
+      <p className="font-bold mb-3">3 Cuotas de: ${calculateInstallment(tresCuotasTotal, 3)}</p>
+      <p className="mb-3">Total en 6 Cuotas: ${seisCuotasTotal.toFixed(2)}</p>
+      <p className="font-bold mb-3">6 Cuotas de: ${calculateInstallment(seisCuotasTotal, 6)}</p>
     </div>
   );
 };

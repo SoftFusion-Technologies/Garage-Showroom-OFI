@@ -6,7 +6,7 @@ const ProductForm = ({ addProduct, updateRates, rates }) => {
 
   const handleAddProduct = (e) => {
     e.preventDefault();
-    if (product && price) {
+    if (price) {
       addProduct({ name: product, price: parseFloat(price) });
       setProduct('');
       setPrice('');
