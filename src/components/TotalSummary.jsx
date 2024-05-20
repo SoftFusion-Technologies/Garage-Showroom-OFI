@@ -46,7 +46,7 @@ const TotalSummary = ({ products, rates }) => {
       </p>
       <p className="font-bold mb-3">
         3 Cuotas de:
-        ${calculateInstallment(tresCuotasTotal, 3).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+        ${Number(calculateInstallment(tresCuotasTotal, 3)).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
       </p>
       <p className="mb-3">
         Total en 6 Cuotas:
@@ -54,9 +54,8 @@ const TotalSummary = ({ products, rates }) => {
       </p>
       <p className="font-bold mb-3">
         6 Cuotas de:
-        ${calculateInstallment(seisCuotasTotal, 6).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+        ${Number(calculateInstallment(seisCuotasTotal, 6)).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
       </p>
-
 
     </div>
   );
