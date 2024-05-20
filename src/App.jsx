@@ -50,7 +50,7 @@ const App = () => {
             className='mx-auto' />
           <h1 className='pb-2 text-[#999] '>Developed by SoftFusion</h1>
         </div>
-        <h2 className=''>Copyright © 2023 - <span><a href="https://www.garagetienda.com.ar/" target='_blank'>El Garage.</a></span></h2>
+        <h2 className=''>Copyright © 2024 - <span><a href="https://www.garagetienda.com.ar/" target='_blank'>El Garage.</a></span></h2>
         <p className='pb-2'>Todos los derechos reservados</p>
       </footer>
     </>
