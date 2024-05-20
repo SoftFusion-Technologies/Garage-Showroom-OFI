@@ -32,12 +32,32 @@ const TotalSummary = ({ products, rates }) => {
   return (
     <div className="mt-4 p-4 border rounded shadow-sm">
       <h2 className="text-xl font-bold mb-4">Resumen Total</h2>
-      <p className="mb-3">Total en Efectivo: ${total('efectivo').toFixed(2)}</p>
-      <p className="mb-3">Total en Transferencia: ${total('transferencia').toFixed(2)}</p>
-      <p className="mb-3">Total en 3 Cuotas: ${tresCuotasTotal.toFixed(2)}</p>
-      <p className="font-bold mb-3">3 Cuotas de: ${calculateInstallment(tresCuotasTotal, 3)}</p>
-      <p className="mb-3">Total en 6 Cuotas: ${seisCuotasTotal.toFixed(2)}</p>
-      <p className="font-bold mb-3">6 Cuotas de: ${calculateInstallment(seisCuotasTotal, 6)}</p>
+      <p className="mb-3">
+        Total en Efectivo:
+        ${total('efectivo').toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+      <p className="mb-3">
+        Total en Transferencia:
+        ${total('transferencia').toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+      <p className="mb-3">
+        Total en 3 Cuotas:
+        ${tresCuotasTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+      <p className="font-bold mb-3">
+        3 Cuotas de:
+        ${calculateInstallment(tresCuotasTotal, 3).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+      <p className="mb-3">
+        Total en 6 Cuotas:
+        ${seisCuotasTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+      <p className="font-bold mb-3">
+        6 Cuotas de:
+        ${calculateInstallment(seisCuotasTotal, 6).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </p>
+
+
     </div>
   );
 };

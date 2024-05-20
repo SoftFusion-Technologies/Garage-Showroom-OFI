@@ -22,19 +22,24 @@ const ProductTable = ({ products, removeProduct }) => {
                 <span className="font-semibold md:hidden">Producto: </span>{product.name}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
-                <span className="font-semibold md:hidden">Precio: </span>${product.price}
+                <span className="font-semibold md:hidden">Precio: </span>
+                ${product.price.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
-                <span className="font-semibold md:hidden">Efectivo: </span>${product.price}
+                <span className="font-semibold md:hidden">Efectivo: </span>
+                ${product.price.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
-                <span className="font-semibold md:hidden">Transferencia: </span>${(product.price * 1.1).toFixed(2)} {/* Ejemplo: 10% */}
+                <span className="font-semibold md:hidden">Transferencia: </span>
+                ${(product.price * 1.1).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {/* Ejemplo: 10% */}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
-                <span className="font-semibold md:hidden">3 Cuotas: </span>${(product.price * 1.25).toFixed(2)} {/* Ejemplo: 25% */}
+                <span className="font-semibold md:hidden">3 Cuotas: </span>
+                ${(product.price * 1.25).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}  {/* Ejemplo: 25% */}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
-                <span className="font-semibold md:hidden">6 Cuotas: </span>${(product.price * 1.5).toFixed(2)} {/* Ejemplo: 50% */}
+                <span className="font-semibold md:hidden">6 Cuotas: </span>
+                ${(product.price * 1.5).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}  {/* Ejemplo: 50% */}
               </td>
               <td className="px-6 py-2 whitespace-nowrap md:table-cell">
                 <button
