@@ -40,6 +40,10 @@ const VerVentas = () => {
         });
     };
 
+    const formatCurrency = (value) => {
+        return value.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+
     const diasDeLaSemana = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
 
     return (
@@ -87,11 +91,13 @@ const VerVentas = () => {
                                             </td>
                                             <td className="px-4 py-3 border">
                                                 {venta.productos.map((product, i) => (
-                                                    <div key={i}>Producto: {product.name} ||  Precio: ${product.price.toFixed(2)}</div>
+                                                    <div key={i}>Producto: {product.name} ||  Precio:
+                                                        ${formatCurrency(product.price)}
+                                                    </div>
                                                 ))}
                                             </td>
                                             <td className="px-4 py-3 border">
-                                                Total: ${totalVenta.toFixed(2)}
+                                                Total: ${formatCurrency(totalVenta)}
                                             </td>
                                         </tr>
                                     );
