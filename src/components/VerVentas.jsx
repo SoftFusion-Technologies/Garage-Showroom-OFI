@@ -7,11 +7,45 @@ const VerVentas = () => {
     const [filteredVentas, setFilteredVentas] = useState([]);
     const [fechaDesde, setFechaDesde] = useState('');
     const [fechaHasta, setFechaHasta] = useState('');
+    const [ventasEliminadas, setVentasEliminadas] = useState(false);
 
     useEffect(() => {
         const ventasGuardadas = JSON.parse(localStorage.getItem('ventas')) || [];
         setVentas(ventasGuardadas);
         setFilteredVentas(ventasGuardadas);
+    }, []);
+    
+    useEffect(() => {
+        if (ventasEliminadas) {
+            setTimeout(() => {
+                setVentasEliminadas(false);
+            }, 5000); // Ocultar el mensaje después de 5 segundos
+        }
+    }, [ventasEliminadas]);
+
+
+    useEffect(() => {
+        const limpiarVentasAutomatico = () => {
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0: domingo, 1: lunes, ..., 6: sábado
+            const hour = now.getHours();
+            const minutes = now.getMinutes();
+
+            if (dayOfWeek === 0 && hour ===23) {
+                localStorage.removeItem('ventas');
+                setVentas([]);
+                setFilteredVentas([]);
+                setVentasEliminadas(true); // Opcional: mostrar un mensaje de ventas eliminadas automáticamente
+            }
+        };
+
+        limpiarVentasAutomatico();
+
+        const intervalId = setInterval(() => {
+            limpiarVentasAutomatico();
+        }, 3600000); // Comprueba cada hora
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const handleDateFilterChange = () => {
@@ -44,6 +78,21 @@ const VerVentas = () => {
         return value.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
 
+    const limpiarVentas = () => {
+
+        const confirmacion = window.confirm('¿Seguro que desea eliminar las ventas de la semana?');
+
+        if (!confirmacion) {
+            return;
+        }
+
+        localStorage.removeItem('ventas');
+        setVentas([]);
+        setFilteredVentas([]);
+        setVentasEliminadas(true);
+    };
+
+    
     const diasDeLaSemana = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
 
     return (
@@ -66,6 +115,10 @@ const VerVentas = () => {
                     className="mt-1 block w-full p-2 border rounded"
                 />
             </div>
+
+            <button onClick={limpiarVentas} className="mb-4 px-4 py-2 bg-red-500 text-white rounded">
+                Limpiar Ventas
+            </button>
 
             {diasDeLaSemana.map(dia => (
                 <div key={dia} className="mb-6">
