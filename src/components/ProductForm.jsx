@@ -76,6 +76,8 @@ const ProductForm = ({ addProduct, updateRates, rates, cancelPurchase, finalizar
         Agregar Producto
       </button>
 
+      {/* Cambios agregados por Benjamin Orellana */}
+
       <button className="ml-5 mt-2 px-4 py-2 bg-[#0086aa] text-white rounded"
         onClick={finalizarVenta}>
         Finalizar Compra
