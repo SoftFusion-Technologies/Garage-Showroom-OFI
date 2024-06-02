@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import VentasChart from './VentasChart'
 import ProductForm from './ProductForm'
-
+import ExportarPDF from './ExportarPDF';
 const VerVentas = () => {
     const [ventas, setVentas] = useState([]);
     const [filteredVentas, setFilteredVentas] = useState([]);
@@ -120,6 +120,10 @@ const VerVentas = () => {
                 Limpiar Ventas
             </button>
 
+            <div className="mb-4">
+                <h2 className="text-xl font-bold mb-4">Exportar Ventas a PDF</h2>
+                <ExportarPDF ventas={filteredVentas} diasDeLaSemana={diasDeLaSemana} />
+            </div>
             {diasDeLaSemana.map(dia => (
                 <div key={dia} className="mb-6">
                     <h2 className="text-xl font-bold">{dia.charAt(0).toUpperCase() + dia.slice(1)}</h2>
@@ -161,6 +165,7 @@ const VerVentas = () => {
                 </div>
             ))}
             <VentasChart ventas={filteredVentas} />
+
         </div>
     );
 };
